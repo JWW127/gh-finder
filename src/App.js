@@ -15,15 +15,15 @@ class App extends Component {
             loading: true,
         })
 
-        /*  const res = await axios.get(
-            `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_Id}&client_secret=${REACT_APP_GITHUB_CLIENT_SECRET}`) 
-        */
-
-        //use the above code if you have an api key and .env.local file, github only allows 50pulls per 24hrs
-
         const res = await axios.get(
-            `https://api.github.com/users?`
+            `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_Id}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
         )
+
+        //use the above code if you have an api key and .env.local file, github only allows 50pulls per 24hrs. youll have to create your own process.env file with permissons from github
+
+        // const res = await axios.get(
+        //     `https://api.github.com/users?client`
+        // )
 
         this.setState({ users: res.data, loading: false })
         console.log(res.data)
