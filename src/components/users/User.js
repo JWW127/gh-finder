@@ -1,17 +1,21 @@
 import React, { Component, Fragment } from 'react'
 import Spinner from '../layout/Spinner'
+import Repos from '../repos/Repos'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 export class User extends Component {
     componentDidMount() {
         this.props.getUser(this.props.match.params.login)
+        this.props.getUserRepos(this.props.match.params.login)
     }
 
     static propTypes = {
         loading: PropTypes.bool,
         user: PropTypes.object.isRequired,
         getUser: PropTypes.func.isRequired,
+        getUserRepos: PropTypes.func.isRequired,
+        repos: PropTypes.array.isRequired,
     }
 
     render() {
@@ -26,12 +30,12 @@ export class User extends Component {
             company,
             followers,
             following,
-            public_repose,
-            public_gist,
+            public_repos,
+            public_gists,
             hireable,
         } = this.props.user
 
-        const { loading } = this.props
+        const { loading, repos } = this.props
 
         if (loading) return <Spinner />
 
@@ -100,10 +104,13 @@ export class User extends Component {
                         Following: {following}
                     </div>
                     <div className="badge badge-danger">
-                        Public Repos: {public_repose}
+                        Public Repos: {public_repos}
                     </div>
-                    <div className="badge badge-caution">Public Gist: {public_gist}</div>
+                    <div className="badge badge-caution">
+                        Public Gist: {public_gists}
+                    </div>
                 </div>
+                <Repos repos={repos} />
             </Fragment>
         )
     }
