@@ -1,6 +1,9 @@
-import React, {  useState } from 'react'
+import React, { useState, useContext } from 'react'
+import GithubContext from '../../context/github/githubContext'
 
-const Search = ({ searchUsers }) => {
+const Search = () => {
+    const githubContext = useContext(GithubContext)
+
     const [text, setText] = useState('')
 
     const onChangeHandler = e => {
@@ -9,7 +12,7 @@ const Search = ({ searchUsers }) => {
 
     const onSubmit = e => {
         e.preventDefault()
-        searchUsers(text)
+        githubContext.searchUsers(text)
         setText('')
     }
 
