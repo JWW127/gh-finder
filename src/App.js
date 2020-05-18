@@ -15,10 +15,6 @@ const App = () => {
     const [loading, setLoading] = useState(false)
     const [repos, setRepos] = useState([])
 
-    //get single user
-
-    //get user's repos
-
     return (
         <GithubState>
             <Router>
@@ -29,7 +25,7 @@ const App = () => {
                             <Route exact path="/" component={Home} />
                             <Route exact path="/about" component={About} />
                             <Route exact path="/user/:login" component={User} />
-                            <Route component={NotFound}/>
+                            <Route component={NotFound} />
                         </Switch>
                     </div>
                 </div>

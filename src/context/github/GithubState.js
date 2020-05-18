@@ -18,6 +18,7 @@ const GithubState = props => {
         setLoading()
 
         const res = await axios.get(
+            //add your own own env file here or github will limit to 50 searches
             `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_Id}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
         )
 
@@ -32,6 +33,7 @@ const GithubState = props => {
         setLoading()
 
         const res = await axios.get(
+            //add your own own env file here or github will limit to 50 searches
             `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_Id}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
         )
 
@@ -46,6 +48,7 @@ const GithubState = props => {
         setLoading()
 
         const res = await axios.get(
+            //add your own own env file here or github will limit to 50 searches
             `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_Id}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
         )
 
