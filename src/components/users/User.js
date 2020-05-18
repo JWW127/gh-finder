@@ -55,10 +55,10 @@ const User = ({ match }) => {
                     <h1>{name}</h1>
                     <p>Location: {location}</p>
                 </div>
-                <div>
+                <div className="all-center">
                     {bio && (
                         <Fragment>
-                            <h3>Bio</h3>
+                            <h3>User Bio</h3>
                             <p>{bio}</p>
                         </Fragment>
                     )}
